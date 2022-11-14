@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chola Trip</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    
+    <h1>Welcome To chola's Land!</h1>
+    <h3>Land of Architecture and Fine Arts</h3>
+     
+    <form name="tripinfo" onsubmit="return formSubmit()" id="tripinfo" method="post">
+
+
+    <div id="partition1">
+    <h3> Please select your preference </h3>
+    
+         <input type="radio" name="option" value="One Way-Trip" id="radiobutton1" onclick="preferenceSelect()">
+         <label for="radiobutton1">Single-Trip</label>  
+         <input type="radio" name="option" value="Round-Trip" id ="radiobutton2" onclick="preferenceSelect()">
+         <label for="radiobutton2">Round-Trip</label> <br><br>
+    </div>
+
+
+
+    <div id="partition2">
+        <h4 id="singledisp">     </h4>
+        Name: <input type="text" name="uname" id="usrname" pattern="[a-zA-Z]{3,}" placeholder= "Enter your Name" required> <br><br>
+        
+        Phone No: <input type="number" name="phno" id="phone"  placeholder="Enter your mobile number" required/> <br><br>
+        
+        E-mail : <input type="text" name="myemail" id="email"  placeholder = "eg:johndoe@gml.com" required/><br><br>
+        
+        Start Location : <input type="text" name="startlocation" id="startl" placeholder="Starting place" required/>
+        
+        Start Date : <input type="date" name="startdate" id="startd" onblur="jstartdate()" required/><br><br>
+        
+        Destination : <input type="text" name="destination" id="destn" placeholder="Destination place" required/><br><br>
+        
+        <button onclick="formSubmit()">Submit</button>
+        <button onclick="formclear()">Clear</button>
+        
+        <button onclick="history.back()"> BACK </button>
+    </div>
+
+
+    <div id="partition3">
+        <h4 id="rounddisp">     </h4>
+        Name: <input type="text" name="uname" id="usrname" pattern="[a-zA-Z]{3,}" placeholder= "Enter your Name" required   > <br><br>
+
+        Phone No: <input type="text" name="phno" id="phone1" pattern=".{10}" placeholder="Enter your mobile number" required > <br><br>
+        
+        E-mail : <input type="text" name="myemail" id="email1" placeholder = "eg:johndoe@gml.com" required> <br><br>
+        
+        Start Location : <input type="text" name="startlocation1" id="startl1" placeholder="Starting place" required>
+        
+        Start Date : <input type="date" name="startdate" id="startd" required><br><br>
+        
+        Destination : <input type="text" name="destination1" id="destn1" placeholder="Destination place" required>
+        
+        Return Date : <input type="date" name="retundate" id="returnd" required> <br><br>
+        
+       
+        <button onclick="formSubmit()">Submit</button>
+        <button onclick= "formclear()" >Clear</button>
+        <button onclick="history.back()"> BACK </button>
+    </div>
+
+    </form>
+
+    <script>
+        document.getElementById("partition2").style.display = "none";
+        document.getElementById("partition3").style.display = "none";
+
+        function preferenceSelect(){
+        if(document.getElementById("radiobutton1").checked) {
+            
+            document.getElementById("singledisp").innerHTML =  "You are inside the One-Way trip booking section"; 
+            document.getElementById("partition2").style.display = "block";
+            document.getElementById("partition3").style.display = "none";
+            
+             
+        } else if(document.getElementById("radiobutton2").checked) {
+
+            document.getElementById("rounddisp").innerHTML = "You are inside the Round trip booking section"; 
+            document.getElementById("partition3").style.display = "block";
+            document.getElementById("partition2").style.display = "none";
+            
+
+        } else {
+            document.write("please select valid option")
+        }
+    }
+                
+    </script>
+    <script type="text/javascript">
+
+                    
+            function validMobile(){
+            
+            let mobile=document.getElementById("phone").value;
+            let mblen = mobile.length;
+           
+            if (mblen == 10)
+           
+                     { 
+                        
+                        return true;
+                        
+                     } else  {
+                        
+                           alert( "enter the correct 10 digits number");
+                           document.getElementById("phone").focus();
+                           return false;
+                          
+                        }
+                        return true;
+                    }
+                
+
+            function validMail(){
+               
+               let mymail=(document.getElementById("email").value);
+           let attherate=mymail.indexOf("@");
+           let atthedot=mymail.lastIndexOf(".");
+
+           if (attherate<1 || atthedot<attherate+2 || atthedot>=mymail.length)
+                  {
+                     alert( "enter the correct email");
+                     document.getElementById("startd").focus();
+                     return false;
+                  }
+                  return true;
+         }  
+                
+                function jstartdate(){
+                        let curdate=new Date();
+          
+                        let stdate= new Date(document.getElementById("startd").value);
+          
+                        if (stdate<curdate)
+                            {
+                                alert("start date must be greater than current date");
+                                return false;
+                            
+                        }
+                            return ture;
+
+                    }
+
+       
+
+        function formclear(){
+            document.getElementById("tripinfo").reset();
+        }
+
+       
+
+        function formSubmit(){
+            
+            if (validMobile() && validMail()) 
+            alert("Form successfully Submitted");
+        
+    
+}
+    </script>
+</body>
+</html> 

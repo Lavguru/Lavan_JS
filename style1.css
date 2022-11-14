@@ -1,0 +1,56 @@
+@keyframes h1animation {
+    0% {color: rgb(64, 19, 155);}
+    25% {color: rgb(106, 27, 106);}
+    50% {color: rgba(255, 0, 255, 0.693);}
+    100% {color:  rgb(64, 19, 155);}
+}
+
+
+body{
+    background-color: rgb(12, 12, 12);
+    background-image: url(collage4_2.JPG);
+    background-repeat: no-repeat;
+    /*background-size: 80%;*/
+    background-position-y: 50px;
+    background-position-x: 650px;
+    color: rgba(255, 255, 255, 0.704);
+}
+
+h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: blueviolet;
+    font-size: 45px;
+    text-shadow: 3px 3px 3px rgb(95, 62, 19);
+    animation-name: h1animation;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+
+}
+body h3{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: italic;
+    font-size: 30px;
+    color: rgba(132, 159, 11, 0.836);
+    text-shadow: 3px 3px 3px rgb(46, 124, 22);
+
+}
+#partition1 h3{
+    color: rgba(250, 134, 172, 0.866);
+    text-shadow: 3px 3px 3px rgb(70, 15, 37);
+    font-size: 18px;
+    font-style:italic;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    word-spacing: 2px;
+}
+#partition1 {
+    color: rosybrown;
+    margin-left: 140px;
+    padding: 10px;
+    word-spacing: 32px;
+}
+#partition1 label{ 
+    position: relative;
+    right: 30px;
+
+}
